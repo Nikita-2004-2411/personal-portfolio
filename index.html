@@ -52,16 +52,31 @@
             <a href="https://github.com/nikitakale-dev/project1" target="_blank">View on GitHub</a>
         </div>
     </section>
-
-    <!-- Contact Section -->
     <section id="contact">
-        <h2>Contact Me</h2>
-        <form id="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+    <h2>Contact Me</h2>
+
+    <form id="contact-form">
+
+        <div class="input-group">
+            <input type="text" id="name" placeholder="Your Name">
+            <span class="error" id="nameError"></span>
+        </div>
+
+        <div class="input-group">
+            <input type="email" id="email" placeholder="Your Email">
+            <span class="error" id="emailError"></span>
+        </div>
+
+        <div class="input-group">
+            <textarea id="message" placeholder="Your Message"></textarea>
+            <span class="error" id="messageError"></span>
+        </div>
+
+        <button type="submit">Send Message</button>
+        <p id="successMsg"></p>
+
+    </form>
+    
     </section>
 
     <script src="script.js"></script>
