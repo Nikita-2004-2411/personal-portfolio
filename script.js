@@ -1,14 +1,13 @@
-// Smooth scroll on nav link click
-document.querySelectorAll('nav ul li a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetID = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetID);
-        
-        window.scrollTo({
-            top: targetElement.offsetTop - 50,
-            behavior: 'smooth'
-        });
+const cards = document.querySelectorAll(".project-card");
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
     });
+},{threshold:0.3});
+
+cards.forEach(card=>{
+    observer.observe(card);
 });
