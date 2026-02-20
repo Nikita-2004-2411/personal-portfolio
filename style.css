@@ -1,16 +1,74 @@
-/* Projects Section */
-#projects{
-    padding:60px 20px;
-    background:#181818;
+body{
+    margin:0;
+    font-family:Arial;
+    background:#121212;
+    color:white;
+    scroll-behavior:smooth;
+}
+
+/* Navbar */
+header{
+    background:#000;
+    position:fixed;
+    width:100%;
+    top:0;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 40px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+nav a.active{
+    color:#00aaff;
+}
+
+/* Hero */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Sections */
+section{
+    padding:80px 20px;
     text-align:center;
 }
 
-#projects h2{
-    margin-bottom:30px;
-    font-size:30px;
+/* Skills */
+.skills-container{
+    display:flex;
+    justify-content:center;
+    gap:20px;
 }
 
-/* Cards Layout */
+.skill-card{
+    background:#1e1e1e;
+    padding:15px 25px;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.skill-card:hover{
+    transform:scale(1.1);
+}
+
+/* Projects */
 .projects-container{
     display:flex;
     justify-content:center;
@@ -18,41 +76,37 @@
     flex-wrap:wrap;
 }
 
-/* Project Card */
 .project-card{
-    background:#242424;
+    background:#1e1e1e;
     padding:20px;
-    width:280px;
+    width:250px;
     border-radius:10px;
-    transition:0.3s;
     opacity:0;
     transform:translateY(40px);
+    transition:0.5s;
 }
 
-/* Hover Effect */
-.project-card:hover{
-    transform:translateY(-8px) scale(1.02);
-    box-shadow:0 10px 25px rgba(0,0,0,0.5);
-}
-
-.project-card a{
-    display:inline-block;
-    margin-top:10px;
-    color:#00aaff;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-/* Animation Active */
 .project-card.show{
     opacity:1;
     transform:translateY(0);
 }
 
-/* Mobile */
-@media(max-width:600px){
-    .projects-container{
-        flex-direction:column;
-        align-items:center;
-    }
+/* Contact */
+#contact form{
+    max-width:400px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
 }
+
+input, textarea{
+    padding:10px;
+    background:#1e1e1e;
+    border:1px solid #444;
+    color:white;
+}
+
+button{
+    background:#00aaff;
+    border:none;
