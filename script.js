@@ -1,67 +1,31 @@
-/* Contact Validation */
-document.getElementById("contact-form").addEventListener("submit", function(e){
-    e.preventDefault();
+// Mobile Menu
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-links");
 
-    let valid=true;
-
-    const name=document.getElementById("name");
-    const email=document.getElementById("email");
-    const message=document.getElementById("message");
-
-    nameError.textContent="";
-    emailError.textContent="";
-    messageError.textContent="";
-    successMsg.textContent="";
-
-    if(name.value===""){nameError.textContent="Enter name"; valid=false;}
-    if(email.value===""){emailError.textContent="Enter email"; valid=false;}
-    if(message.value===""){messageError.textContent="Enter message"; valid=false;}
-
-    if(valid){
-        successMsg.textContent="Message Sent!";
-        this.reset();
-    }
-});
-
-/* Scroll Animation */
-const cards=document.querySelectorAll(".project-card");
-
-const observer=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
-    });
-});
-
-cards.forEach(card=>observer.observe(card));
-
-/* Scroll Top Button */
-const topBtn=document.getElementById("topBtn");
-
-window.onscroll=()=>{
-    if(document.documentElement.scrollTop>200)
-        topBtn.style.display="block";
-    else
-        topBtn.style.display="none";
+toggle.onclick = () => {
+  nav.classList.toggle("active");
 };
 
-topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+// Form Validation
+document.getElementById("contactForm").addEventListener("submit", function(e){
 
-/* Active Navbar */
-const sections=document.querySelectorAll("section");
-const navLinks=document.querySelectorAll("nav a");
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let message = document.getElementById("message").value.trim();
+  let error = document.getElementById("error");
 
-window.addEventListener("scroll",()=>{
-    let current="";
-    sections.forEach(sec=>{
-        if(pageYOffset>=sec.offsetTop-150)
-            current=sec.id;
-    });
+  if(name === "" || email === "" || message === ""){
+    e.preventDefault();
+    error.textContent = "Please fill all fields";
+    return;
+  }
 
-    navLinks.forEach(link=>{
-        link.classList.remove("active");
-        if(link.getAttribute("href")==="#"+current)
-            link.classList.add("active");
-    });
+  if(!email.includes("@")){
+    e.preventDefault();
+    error.textContent = "Enter valid email";
+    return;
+  }
+
+  error.style.color = "green";
+  error.textContent = "Message sent successfully!";
 });
