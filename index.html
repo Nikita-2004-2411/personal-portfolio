@@ -1,55 +1,80 @@
          <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nikita Kale Portfolio</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Nikita Kale Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
 <!-- Navbar -->
 <header>
-<nav>
+  <nav class="navbar">
     <h2 class="logo">Nikita</h2>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-</nav>
+  </nav>
 </header>
 
-<!-- Hero -->
+<!-- Hero Section -->
 <section id="home" class="hero">
-    <h1>Hello, I'm Nikita Kale</h1>
-    <p>Web Developer | Frontend Learner</p>
+  <h1>Hello, I'm Nikita Kale</h1>
+  <p>Web Developer | Student</p>
+  <button class="btn">Download CV</button>
 </section>
 
 <!-- About -->
-<section id="about">
-    <h2>About Me</h2>
-    <p>I am a passionate web development student learning HTML, CSS and JavaScript.</p>
+<section id="about" class="section">
+  <h2>About Me</h2>
+  <p>I am a passionate web developer learning HTML, CSS and JavaScript.</p>
 </section>
 
 <!-- Skills -->
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-container">
-        <div class="skill-card">HTML</div>
-        <div class="skill-card">CSS</div>
-        <div class="skill-card">JavaScript</div>
-    </div>
+<section id="skills" class="section">
+  <h2>My Skills</h2>
+  <div class="card-container">
+    <div class="card">HTML</div>
+    <div class="card">CSS</div>
+    <div class="card">JavaScript</div>
+  </div>
 </section>
 
 <!-- Projects -->
-<section id="projects">
-    <h2>My Projects</h2>
+<section id="projects" class="section">
+  <h2>Projects</h2>
+  <div class="card-container">
+    <div class="card">Portfolio Website</div>
+    <div class="card">Landing Page</div>
+    <div class="card">Mini JS Project</div>
+  </div>
+</section>
 
-    <div class="projects-container">
-        <div class="project-card">
-            <h3>Portfolio Website</h3>
-            <p>Personal portfolio using HTML
-            </p>
+<!-- Contact -->
+<section id="contact" class="section">
+  <h2>Contact Me</h2>
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="email" id="email" placeholder="Your Email">
+    <textarea id="message" placeholder="Your Message"></textarea>
+    <button class="btn" type="submit">Send Message</button>
+    <p id="error"></p>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 Nikita Kale | All Rights Reserved</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
