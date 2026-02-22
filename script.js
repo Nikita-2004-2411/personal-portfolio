@@ -1,31 +1,67 @@
-// Mobile Menu
-const toggle = document.getElementById("menu-toggle");
-const nav = document.getElementById("nav-links");
+/* Contact Form Validation */
+document.getElementById("contact-form").addEventListener("submit", function(e){
+    e.preventDefault();
 
-toggle.onclick = () => {
-  nav.classList.toggle("active");
+    let valid=true;
+
+    const name=document.getElementById("name");
+    const email=document.getElementById("email");
+    const message=document.getElementById("message");
+
+    nameError.textContent="";
+    emailError.textContent="";
+    messageError.textContent="";
+    successMsg.textContent="";
+
+    if(name.value===""){nameError.textContent="Enter name"; valid=false;}
+    if(email.value===""){emailError.textContent="Enter email"; valid=false;}
+    if(message.value===""){messageError.textContent="Enter message"; valid=false;}
+
+    if(valid){
+        successMsg.textContent="Message Sent!";
+        this.reset();
+    }
+});
+
+/* Scroll Reveal Animation */
+const cards=document.querySelectorAll(".project-card");
+
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+cards.forEach(card=>observer.observe(card));
+
+/* Scroll To Top Button */
+const topBtn=document.getElementById("topBtn");
+
+window.onscroll=()=>{
+    if(document.documentElement.scrollTop>200)
+        topBtn.style.display="block";
+    else
+        topBtn.style.display="none";
 };
 
-// Form Validation
-document.getElementById("contactForm").addEventListener("submit", function(e){
+topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
 
-  let name = document.getElementById("name").value.trim();
-  let email = document.getElementById("email").value.trim();
-  let message = document.getElementById("message").value.trim();
-  let error = document.getElementById("error");
+/* Active Navbar Highlight */
+const sections=document.querySelectorAll("section");
+const navLinks=document.querySelectorAll("nav a");
 
-  if(name === "" || email === "" || message === ""){
-    e.preventDefault();
-    error.textContent = "Please fill all fields";
-    return;
-  }
+window.addEventListener("scroll",()=>{
+    let current="";
+    sections.forEach(sec=>{
+        if(pageYOffset>=sec.offsetTop-150)
+            current=sec.id;
+    });
 
-  if(!email.includes("@")){
-    e.preventDefault();
-    error.textContent = "Enter valid email";
-    return;
-  }
-
-  error.style.color = "green";
-  error.textContent = "Message sent successfully!";
+    navLinks.forEach(link=>{
+        link.classList.remove("active");
+        if(link.getAttribute("href")==="#"+current)
+            link.classList.add("active");
+    });
 });
