@@ -1,67 +1,25 @@
-/* Contact Form Validation */
-document.getElementById("contact-form").addEventListener("submit", function(e){
+// Smooth Scroll
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+// Contact Form Validation
+document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    let valid=true;
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let message = document.getElementById("message").value.trim();
+    let formMessage = document.getElementById("formMessage");
 
-    const name=document.getElementById("name");
-    const email=document.getElementById("email");
-    const message=document.getElementById("message");
-
-    nameError.textContent="";
-    emailError.textContent="";
-    messageError.textContent="";
-    successMsg.textContent="";
-
-    if(name.value===""){nameError.textContent="Enter name"; valid=false;}
-    if(email.value===""){emailError.textContent="Enter email"; valid=false;}
-    if(message.value===""){messageError.textContent="Enter message"; valid=false;}
-
-    if(valid){
-        successMsg.textContent="Message Sent!";
-        this.reset();
+    if (name === "" || email === "" || message === "") {
+        formMessage.style.color = "red";
+        formMessage.textContent = "Please fill all fields!";
+    } else {
+        formMessage.style.color = "green";
+        formMessage.textContent = "Message sent successfully!";
+        document.getElementById("contactForm").reset();
     }
-});
-
-/* Scroll Reveal Animation */
-const cards=document.querySelectorAll(".project-card");
-
-const observer=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
-    });
-});
-
-cards.forEach(card=>observer.observe(card));
-
-/* Scroll To Top Button */
-const topBtn=document.getElementById("topBtn");
-
-window.onscroll=()=>{
-    if(document.documentElement.scrollTop>200)
-        topBtn.style.display="block";
-    else
-        topBtn.style.display="none";
-};
-
-topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
-
-/* Active Navbar Highlight */
-const sections=document.querySelectorAll("section");
-const navLinks=document.querySelectorAll("nav a");
-
-window.addEventListener("scroll",()=>{
-    let current="";
-    sections.forEach(sec=>{
-        if(pageYOffset>=sec.offsetTop-150)
-            current=sec.id;
-    });
-
-    navLinks.forEach(link=>{
-        link.classList.remove("active");
-        if(link.getAttribute("href")==="#"+current)
-            link.classList.add("active");
-    });
 });
