@@ -2,99 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Nikita Kale | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikita Kale Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Navbar -->
-<header>
-    <nav>
-        <h2 class="logo">Nikita</h2>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+    <!-- Header -->
+    <header>
+        <nav>
+            <h2 class="logo">Nikita Kale</h2>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- Hero Section -->
-<section id="home" class="hero">
-    <h1>Hello, I'm Nikita Kale</h1>
-    <p>Web Developer | Frontend Learner</p>
-</section>
+    <!-- Home Section -->
+    <section id="home" class="section home">
+        <h1>Hello, I'm Nikita 👋</h1>
+        <p>Frontend Developer | Student</p>
+        <button onclick="scrollToSection('contact')">Hire Me</button>
+    </section>
 
-<!-- About Section -->
-<section id="about">
-    <h2>About Me</h2>
-    <p>I am a passionate web development student learning HTML, CSS and JavaScript.</p>
-</section>
+    <!-- About -->
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>
+            I am a passionate web developer skilled in HTML, CSS, and JavaScript.
+            I enjoy creating responsive and user-friendly websites.
+        </p>
+    </section>
 
-<!-- Skills Section -->
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-container">
-        <div class="skill-card">HTML</div>
-        <div class="skill-card">CSS</div>
-        <div class="skill-card">JavaScript</div>
-    </div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects">
-    <h2>My Projects</h2>
-
-    <div class="projects-container">
-        <div class="project-card">
-            <h3>Portfolio Website</h3>
-            <p>Personal portfolio using HTML, CSS, and JavaScript.</p>
-            <a href="https://github.com/nikitakale-dev/portfolio-project" target="_blank">View Code</a>
+    <!-- Skills -->
+    <section id="skills" class="section">
+        <h2>My Skills</h2>
+        <div class="card-container">
+            <div class="card">HTML</div>
+            <div class="card">CSS</div>
+            <div class="card">JavaScript</div>
+            <div class="card">Responsive Design</div>
         </div>
+    </section>
 
-        <div class="project-card">
-            <h3>To-Do List</h3>
-            <p>Task manager with add and delete functionality.</p>
-            <a href="#">View Code</a>
+    <!-- Projects -->
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Portfolio Website</h3>
+                <p>Responsive personal portfolio website.</p>
+            </div>
+            <div class="card">
+                <h3>Landing Page</h3>
+                <p>Modern responsive landing page design.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="project-card">
-            <h3>Weather App</h3>
-            <p>Weather application using API integration.</p>
-            <a href="#">View Code</a>
-        </div>
-    </div>
-</section>
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="email" id="email" placeholder="Your Email">
+            <textarea id="message" placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+            <p id="formMessage"></p>
+        </form>
+    </section>
 
-<!-- Contact Section -->
-<section id="contact">
-    <h2>Contact Me</h2>
+    <footer>
+        <p>© 2026 Nikita Kale | All Rights Reserved</p>
+    </footer>
 
-    <form id="contact-form">
-        <input type="text" id="name" placeholder="Your Name">
-        <span class="error" id="nameError"></span>
-
-        <input type="email" id="email" placeholder="Your Email">
-        <span class="error" id="emailError"></span>
-
-        <textarea id="message" placeholder="Your Message"></textarea>
-        <span class="error" id="messageError"></span>
-
-        <button type="submit">Send Message</button>
-        <p id="successMsg"></p>
-    </form>
-</section>
-
-<!-- Footer Section -->
-<footer id="footer">
-    <p>© 2026 Nikita Kale</p>
-</footer>
-
-<button id="topBtn">↑</button>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
- </html>            
+       </html> 
